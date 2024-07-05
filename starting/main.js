@@ -13,6 +13,10 @@ class Field {
     this.play = true
   }
 
+  static generateField(height, width){
+
+  }
+
   print(){
     for(let i = 0; i < this.field.length; i++){
       console.log(this.field[i].join(""))
