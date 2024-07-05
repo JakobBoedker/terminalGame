@@ -48,8 +48,6 @@ class Field {
     this.winOrLose()
   }
 
-
-
   rungame(){
     while(this.play){
       this.print()
