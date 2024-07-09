@@ -49,6 +49,7 @@ class Field {
     }else if(move === 'l'){
       this.x -= 1
     }
+    console.clear()
     this.winOrLose()
   }
 
@@ -58,12 +59,31 @@ class Field {
       this.askUser()
     }
   }
+
+  generateField(){
+    const height = prompt("Enter the height of the field: ")
+    const width = prompt("Enter the width of the field: ")
+    let field = []
+    for(let i = 0; i < height; i++){
+      let row = []
+      for(let j = 0; j < width; j++){
+        let random = Math.floor(Math.random() * 3)
+        if(random === 0){
+          row.push("O")
+        }else{
+          row.push("░")
+        }
+      }
+      field.push(row)
+    }
+    let randomX = Math.floor(Math.random() * width)
+    let randomY = Math.floor(Math.random() * height)
+    field[randomY][randomX] = "^"
+    field[0][0] = "*"
+    return field
+  }
 }
 
-const myField = new Field([
-  ['*', 'O', 'O'],
-  ['░', 'O', '░'],
-  ['░', '^', '░']
-]);
-
+const myField = new Field()
+myField.field = myField.generateField()
 myField.rungame()
